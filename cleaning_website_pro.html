@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Better House Clean Housekeeping</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 0; background: #eef2f3; }
+header { background: linear-gradient(90deg, #2e86de, #27ae60); color: white; padding: 30px; text-align: center; }
+.container { padding: 20px; max-width: 600px; margin: auto; }
+.card { background: white; padding: 20px; margin: 15px 0; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+h2 { text-align: center; }
+button { background: #27ae60; color: white; border: none; padding: 12px; width: 100%; border-radius: 8px; cursor: pointer; font-size: 16px; }
+button:hover { background: #219150; }
+input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #ccc; }
+.footer { text-align: center; padding: 20px; background: #ddd; margin-top: 20px; }
+.badge { background: #27ae60; color: white; padding: 5px 10px; border-radius: 20px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Better House Clean Housekeeping</h1>
+<p>Reliable • Detailed • Affordable</p>
+<p>📞 301-923-5515 | 📧 BetterCleanHousekeeping@gmail.com</p>
+<span class="badge">First cleaning discount available!</span>
+</header>
+
+<div class="container">
+
+<h2>Select Your Service</h2>
+
+<div class="card"><h3>House Cleaning</h3><button onclick="selectService('House Cleaning')">Select</button></div>
+<div class="card"><h3>Building Cleaning</h3><button onclick="selectService('Building Cleaning')">Select</button></div>
+<div class="card"><h3>Garage Cleaning</h3><button onclick="selectService('Garage Cleaning')">Select</button></div>
+<div class="card"><h3>Office Cleaning</h3><button onclick="selectService('Office Cleaning')">Select</button></div>
+<div class="card"><h3>Trash Collection</h3><button onclick="selectService('Trash Collection')">Select</button></div>
+
+<h2>Book Your Cleaning</h2>
+
+<form onsubmit="sendToWhatsApp(event)">
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="tel" id="phone" placeholder="Phone Number" required>
+<input type="text" id="service" placeholder="Selected Service" readonly required>
+<button type="submit">Book via WhatsApp</button>
+</form>
+
+</div>
+
+<div class="footer">
+<p>Serving Gaithersburg & Rockville, MD</p>
+</div>
+
+<script>
+function selectService(service) {
+document.getElementById('service').value = service;
+}
+
+function sendToWhatsApp(e) {
+e.preventDefault();
+let name = document.getElementById('name').value;
+let phone = document.getElementById('phone').value;
+let service = document.getElementById('service').value;
+
+let message = `Hello, my name is ${name}. I want to book: ${service}. My phone: ${phone}`;
+let url = `https://wa.me/13019235515?text=${encodeURIComponent(message)}`;
+
+window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
